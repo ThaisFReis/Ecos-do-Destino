@@ -10,14 +10,14 @@ interface StoryNodeProps {
 
 const StoryNode: React.FC<StoryNodeProps> = ({ text, choices, onChoiceSelect, onRestart }) => {
   return (
-    <div className="p-4 text-[#ccd6cd] rounded-lg">
-      <p className="mb-4 text-lg">{text}</p>
-      <div className="flex flex-col gap-2 justify-center items-center">
+    <div className="p-4 text-[#ccd6cd] rounded-lg w-1/2 max-mobile:w-full" >
+      <p className="mb-8 text-xl font-medium max-mobile:text-sm">{text}</p>
+      <div className="flex flex-col gap-4 justify-center items-center">
         {choices.length > 0 ? (
           choices.map((choice) => (
             <button
               key={choice.id}
-              className="border border-[#ebfa8b] hover:border-[#ede376] text-[#ccd6cd] hover:font-medium hover:text-[#ede376] py-2 px-4 rounded transition w-1/2"
+              className="border border-[#ebfa8b] hover:border-[#ede376] text-[#ccd6cd] hover:font-medium hover:text-[#ede376] p-4 rounded transition w-1/2 max-mobile:w-full text-pretty"
               onClick={() => onChoiceSelect(choice.nextNodeId)}
             >
               {choice.text}
